@@ -44,6 +44,17 @@ services:
        PORT: ${PORT}
        MAILHOST: mailhog
 
+   phpmyadmin:
+       container_name: fsa-phpmyadmin
+       image: phpmyadmin
+       restart: always
+       ports:
+            - 8888:80
+       environment:
+            PMA_HOST: dbhost
+       depends_on:
+            - dbhost
+
 volumes:
     dbhost_data:
     images:
